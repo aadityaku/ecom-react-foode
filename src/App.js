@@ -1,24 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
+import { Grid } from "@mui/material";
+import { Container } from "@mui/system";
+import Category from "./components/Category";
+import Content from "./components/Content";
+import Header from "./components/Header";
+import OrderTable from "./components/Order";
+import product from "./Data/Product";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+     <Header/>
+     
+       <Grid container rowSpacing={0} >
+         <Grid item lg={2} >
+            <Category/>
+         </Grid>
+         <Grid item lg={6.7}>
+            <Content product={product}/>
+         </Grid>
+         <Grid item lg={3.3} sx={{marginTop:2}}>
+            <OrderTable/>
+         </Grid>
+       </Grid>
+     
+    </>
+   
   );
 }
 
